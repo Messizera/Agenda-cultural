@@ -14,11 +14,12 @@ header {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  height: 120px; /* altura do cabeçalho */
 }
 
 header img {
-  width: 80px;
-  height: auto;
+  height: 100%; /* imagem ocupa toda a altura do header */
+  width: auto;
   border-radius: 8px;
 }
 
