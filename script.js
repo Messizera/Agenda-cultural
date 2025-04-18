@@ -9,7 +9,6 @@ async function carregarEventosDaPlanilha() {
   linhas.forEach(linha => {
     const colunas = linha.split(",");
 
-    // Verifica se tem pelo menos 8 colunas (incluindo a imagem)
     if (colunas.length >= 8) {
       const nomeEvento = colunas[1];
       const dataEvento = colunas[2];
@@ -17,12 +16,11 @@ async function carregarEventosDaPlanilha() {
       const local = colunas[4];
       const descricao = colunas[5];
       const contato = colunas[6];
-      const imagemUrl = colunas[7].trim();
+      // const imagemUrl = colunas[7].trim(); // você pode até comentar isso se quiser
 
       const el = document.createElement("div");
       el.className = "event";
       el.innerHTML = `
-        ${imagemUrl ? `<img src="${imagemUrl}" alt="Imagem do evento" class="imagem-evento">` : ""}
         <p><strong>Nome:</strong> ${nomeEvento}</p>
         <p><strong>Data:</strong> ${dataEvento}</p>
         <p><strong>Horário:</strong> ${horario}</p>
