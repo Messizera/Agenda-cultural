@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,32 +8,50 @@ body {
   color: #333;
 }
 
+/* Header estilizado */
 header {
-  background-color: #0077cc;
+  background: linear-gradient(90deg, #005da8, #009dff);
   color: white;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 140px;
-  padding: 0;
-  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header img {
-  height: 100%;
-  width: auto;
-  max-width: 160px; /* evita que a imagem fique grande demais */
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border-radius: 0;
-  display: block;
+  margin: 10px;
 }
 
 .header-center {
-  flex-grow: 1;
   text-align: center;
-  padding: 0 1rem;
+  flex: 1;
 }
 
+.header-center h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+}
+
+.header-center p {
+  font-size: 1rem;
+  margin-top: 4px;
+  color: #f0f0f0;
+}
+
+/* Linha decorativa abaixo do header */
+hr.header-separator {
+  border: none;
+  height: 4px;
+  background: #e0e0e0;
+  margin: 0;
+}
 
 nav {
   display: flex;
