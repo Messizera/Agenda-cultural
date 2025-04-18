@@ -1,3 +1,29 @@
+// Função para lidar com linhas CSV corretamente (mesmo com aspas e vírgulas dentro dos campos)
+function parseCSVLinha(linha) {
+  const valores = [];
+  let atual = '';
+  let dentroDeAspas = false;
+
+  for (let i = 0; i < linha.length; i++) {
+    const char = linha[i];
+
+    if (char === '"' && linha[i + 1] === '"') {
+      atual += '"';
+      i++; // pular a próxima aspa dupla
+    } else if (char === '"') {
+      dentroDeAspas = !dentroDeAspas;
+    } else if (char === ',' && !dentroDeAspas) {
+      valores.push(atual);
+      atual = '';
+    } else {
+      atual += char;
+    }
+  }
+  valores.push(atual); // adiciona o último valor
+
+  return valores;
+}
+
 async function carregarEventosDaPlanilha() {
   const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vThJFYlU0KduwGTipk0Wk_CILMrQsziQXsznN6Fuk07cDV2lFpJ9LA1-0q3_OrV0QcjhreXNaXWROWN/pub?output=csv');
   const data = await response.text();
@@ -7,7 +33,9 @@ async function carregarEventosDaPlanilha() {
   eventosDiv.innerHTML = "";
 
   linhas.forEach(linha => {
-    const colunas = linha.split(",");
+    if (linha.trim() === "") return; // pular linha vazia
+
+    const colunas = parseCSVLinha(linha);
 
     if (colunas.length >= 7) {
       const dataHoraEnvio = colunas[0];
@@ -36,5 +64,3 @@ async function carregarEventosDaPlanilha() {
 }
 
 carregarEventosDaPlanilha();
-
-  
