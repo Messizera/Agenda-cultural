@@ -1,47 +1,70 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agenda Cultural</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <img src="imagens/cuia.jpg" alt="Cuia" />
-    <div class="header-center">
-      <h1>Agenda Cultural</h1>
-      <p>Divulgação de Eventos Culturais de Sapiranga</p>
-    </div>
-    <img src="imagens/teatro.jpg" alt="Teatro" />
-  </header>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
 
-  <nav>
-    <a href="#agenda">Agenda</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7sYxQ1H1OHin8coBHNIsl9ATyxbtjEL6Dz-yiDHoFu0piLg/viewform?usp=dialog" target="_blank">Cadastrar Evento</a>
-    <a href="#contato">Contato</a>
-  </nav>
+header {
+  background-color: #0077cc;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
 
-  <div class="container" id="agenda">
-    <h2>Próximos Eventos</h2>
-    <div id="eventos"></div>
-  </div>
+header img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
 
-  <div class="container" id="contato">
-    <h2>Contato</h2>
-    <p>Para dúvidas, entre em contato conosco:</p>
-    <ul>
-      <li>Email: contato@agendaculturalsapiranga.com</li>
-      <li>WhatsApp: (51) 987654321</li>
-      <li>Instagram: @agendaculturalsapiranga</li>
-    </ul>
-  </div>
-  
-  <footer>
-    <p>&copy; 2025 Agenda Cultural de Sapiranga. Desenvolvido por Lucas. Todos os direitos reservados.</p>
-    <p>Apoio: Secretaria da Cultura de Sapiranga e Prefeitura Municipal de Sapiranga.</p>
-  </footer>
+.header-center {
+  text-align: center;
+  flex: 1;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #eee;
+  padding: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
+}
+
+.container {
+  padding: 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.event {
+  background-color: white;
+  border-left: 6px solid #0077cc;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event p {
+  margin: 0.5rem 0;
+}
+
+footer {
+  background-color: #eee;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
