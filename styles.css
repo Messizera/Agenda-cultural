@@ -13,19 +13,25 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 140px;
-  padding: 0 1rem;
+  padding: 0;
+  overflow: hidden;
 }
 
 header img {
   height: 100%;
   width: auto;
-  border-radius: 8px;
+  max-width: 160px; /* evita que a imagem fique grande demais */
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
 }
 
 .header-center {
+  flex-grow: 1;
   text-align: center;
-  flex: 1;
+  padding: 0 1rem;
 }
+
 
 nav {
   display: flex;
