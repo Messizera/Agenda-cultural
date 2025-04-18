@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  background-color: #0077cc;
+  background: linear-gradient(90deg, #005da8, #009dff); /* degradê azul */
   color: white;
   display: flex;
   align-items: center;
