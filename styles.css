@@ -9,16 +9,15 @@ body {
 header {
   background-color: #0077cc;
   color: white;
-  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  height: 120px; /* altura do cabeçalho */
+  height: 140px;
+  padding: 0 1rem;
 }
 
 header img {
-  height: 100%; /* imagem ocupa toda a altura do header */
+  height: 100%;
   width: auto;
   border-radius: 8px;
 }
