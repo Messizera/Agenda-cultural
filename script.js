@@ -1,4 +1,3 @@
-// Função para lidar com linhas CSV corretamente (mesmo com aspas e vírgulas dentro dos campos)
 function parseCSVLinha(linha) {
   const valores = [];
   let atual = '';
@@ -9,18 +8,17 @@ function parseCSVLinha(linha) {
 
     if (char === '"' && linha[i + 1] === '"') {
       atual += '"';
-      i++; // pular a próxima aspa dupla
+      i++;
     } else if (char === '"') {
       dentroDeAspas = !dentroDeAspas;
     } else if (char === ',' && !dentroDeAspas) {
-      valores.push(atual);
+      valores.push(atual.trim());
       atual = '';
     } else {
       atual += char;
     }
   }
-  valores.push(atual); // adiciona o último valor
-
+  valores.push(atual.trim());
   return valores;
 }
 
@@ -28,17 +26,16 @@ async function carregarEventosDaPlanilha() {
   const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vThJFYlU0KduwGTipk0Wk_CILMrQsziQXsznN6Fuk07cDV2lFpJ9LA1-0q3_OrV0QcjhreXNaXWROWN/pub?output=csv');
   const data = await response.text();
 
-  const linhas = data.split("\n").slice(1); // pula o cabeçalho
+  const linhas = data.split("\n").slice(1);
   const eventosDiv = document.getElementById("eventos");
   eventosDiv.innerHTML = "";
 
   linhas.forEach(linha => {
-    if (linha.trim() === "") return; // pular linha vazia
+    if (linha.trim() === "") return;
 
     const colunas = parseCSVLinha(linha);
 
     if (colunas.length >= 7) {
-      const dataHoraEnvio = colunas[0];
       const nomeEvento = colunas[1];
       const dataEvento = colunas[2];
       const horario = colunas[3];
@@ -49,7 +46,6 @@ async function carregarEventosDaPlanilha() {
       const el = document.createElement("div");
       el.className = "event";
       el.innerHTML = `
-        <p><strong>${dataHoraEnvio}</strong></p>
         <p><strong>Nome:</strong> ${nomeEvento}</p>
         <p><strong>Data:</strong> ${dataEvento}</p>
         <p><strong>Horário:</strong> ${horario}</p>
