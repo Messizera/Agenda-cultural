@@ -2,7 +2,7 @@ async function carregarEventosDaPlanilha() {
   const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vThJFYlU0KduwGTipk0Wk_CILMrQsziQXsznN6Fuk07cDV2lFpJ9LA1-0q3_OrV0QcjhreXNaXWROWN/pub?output=csv');
   const data = await response.text();
 
-  const linhas = data.split("\n").slice(1); // pula o cabeçalho
+  const linhas = data.split("\n").slice(1);
   const eventosDiv = document.getElementById("eventos");
   eventosDiv.innerHTML = "";
 
@@ -16,7 +16,7 @@ async function carregarEventosDaPlanilha() {
       const local = colunas[4];
       const descricao = colunas[5];
       const contato = colunas[6];
-      // const imagemUrl = colunas[7].trim(); // você pode até comentar isso se quiser
+      // const imagemUrl = colunas[7].trim();
 
       const el = document.createElement("div");
       el.className = "event";
